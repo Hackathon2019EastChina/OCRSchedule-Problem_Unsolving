@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  
+    <view class='pic'>
+    <view class="pic_button">
+      <view class="content_button_panel">
+        <button bindtap="getPic">选择图片</button>
+      </view>
+    </view>
+
+    <view class="pic_button">
+      <view class="content_button_panel">
+        <button bindtap="uploadPic" >上传图片</button>
+      </view>
+    </view>
+
+    <view style="width:100%;hidth:100%;text-align:center;">
+      <image class="_picture" src="{{my_pic}}" background-size="80% 80%" mode="aspectFit"></image>
+    </view>
+
+    
+  </view>
+  <button bindtap="bindEventTap"> 查看当前事务 </button>
+
+  
+</view>

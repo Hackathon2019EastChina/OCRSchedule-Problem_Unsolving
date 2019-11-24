@@ -1,0 +1,14 @@
+<!--pages/events/events.wxml-->
+<scroll-view class="scroll-list" scroll-y>
+  <view class="events" wx:for="{{events}}" wx:key="{{index}}" wx:for-item="item" data-index="{{index}}">
+    <!--navigator url="../one_event/one_event?index={{item.id}}"-->
+      <view class="MoreInfo" bindtap="moreClick" data-index='{{index}}'> 详情 </view>
+      <view class="del" catchtap="delClick" hover-stop-propagation="true" data-id="{{item.id}}"> 删除 </view>
+      <view class="time">{{item.time}}</view>
+      <view class="location">{{item.location}}</view>
+    <!--/navigator-->
+  </view>
+
+</scroll-view>
+
+<!--如果要新建，还需实现新的页面和功能>
