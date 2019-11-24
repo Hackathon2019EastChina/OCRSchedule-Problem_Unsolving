@@ -10,10 +10,10 @@ Page({
   moreClick: function(e) {
     var index = parseInt(e.currentTarget.dataset.index);
     console.log('位置：' + index);
-    var id = app.globalData.events[index].id;
-    var time = app.globalData.events[index].time;
-    var location = app.globalData.events[index].location;
-    var info = app.globalData.events[index].info;
+    var id = this.data.events[index].id;
+    var time = this.data.events[index].time;
+    var location = this.data.events[index].location;
+    var info = this.data.events[index].info;
     wx.showModal({
       'content': '详情：'+ info,
       'cancelColor': '#0076FF',
@@ -37,7 +37,7 @@ Page({
 
   addnew: function(intime, inloc, ininfo){
     let that = this;
-    let events = app.globalData.events;
+    let events = this.data.events;
     let newevents = [];
     var lastid = 0;
     for (var i in events) {
@@ -55,14 +55,16 @@ Page({
       "location":inloc,
       "info":ininfo
     });
-    app.globalData.events = newevents
+    this.setData({
+      events: newevents
+    })
   },
 
   delClick: function (e) {
     let that = this;
     console.log(e);
     let deldeid = e.currentTarget.dataset.id;
-    let events = app.globalData.events;
+    let events = that.data.events;
     let newevents = [];
     for (var i in events) {
       var item = events[i];
@@ -78,7 +80,9 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
-          app.globalData.events = newevents
+          that.setData({
+            events: newevents
+          })
         }
         else if (res.cancel) {
           console.log('用户点击取消')
@@ -91,16 +95,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onShow: function (options) {
+    this.setData({
+      events: app.globalData.events
+    })
     if(app.globalFlag.flag==1){
       let time = app.globalData.time;
       let info = app.globalData.info;
       this.addnew(time, 'nanjing', info)
     }
     app.globalFlag.flag = 0;
-    this.setData({
-      events: app.globalData.events
-    })
-  }
+  },
 
+
+
+/**
+ * 生命周期函数--监听页面卸载
+ */
+onUnload: function () {
+  app.globalData.events = this.data.events;
+}
 })
-

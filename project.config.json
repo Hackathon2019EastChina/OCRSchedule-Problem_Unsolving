@@ -4,18 +4,26 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.3",
-	"appid": "wx28980130cecb4782",
-	"projectname": "miniprogram-2",
+	"appid": "wx9c08f028d18fc7c6",
+	"projectname": "OCRcalendar",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
