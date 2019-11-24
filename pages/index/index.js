@@ -70,6 +70,9 @@ Page({
   },
   uploadPic:function(option){
     var that = this
+    wx.showLoading({
+      title: '上传中…',
+    })
     wx.uploadFile({
       url: 'https://sm.ms/api/upload',
       filePath: this.data.my_pic,
@@ -128,6 +131,7 @@ Page({
             })
           }
         })
+        wx.hideLoading()
       },
       fail: function (res) {
         that.setData({

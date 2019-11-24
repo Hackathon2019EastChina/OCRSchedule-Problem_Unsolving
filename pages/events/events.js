@@ -104,6 +104,8 @@ Page({
       this.addnew(time, 'nanjing', info)
     }
     app.globalFlag.flag = 0;
+    app.globalData.time=0;
+    app.globalData.info='';
   },
 
 
